@@ -44,7 +44,7 @@ btnScrollTo.addEventListener('click', function (e) {
 
   console.log(e.target.getBoundingClientRect());
 
-  console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
+  console.log('Current scroll (X/Y)', window.scrollX, window.scrollY);
 
   console.log(
     'height/width viewport',
