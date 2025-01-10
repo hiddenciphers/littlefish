@@ -2,7 +2,7 @@
 
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
-const btnCloseModal = document.querySelector('.btn--close-modal');
+const btnsCloseModal = document.querySelectorAll('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
@@ -10,24 +10,35 @@ const nav = document.querySelector('.nav');
 const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
 const tabsContent = document.querySelectorAll('.operations__content');
+const franchiseeModal = document.querySelector('.franchisee');
+const locationsModal = document.querySelector('.locations');
 
 ///////////////////////////////////////
 // Modal window
 
 const openModal = function (e) {
   e.preventDefault();
-  modal.classList.remove('hidden');
+  console.log(e.target);
+  if (e.target.textContent === 'Contact Us' || e.target.textContent === 'Enquire Now') {
+    modal.classList.remove('hidden');
+  } else if (e.target.textContent === 'Franchise Opportunities') {
+    franchiseeModal.classList.remove('hidden');
+  } else if (e.target.textContent === 'Locations') {
+    locationsModal.classList.remove('hidden');
+  }
   overlay.classList.remove('hidden');
 };
 
-const closeModal = function () {
+const closeModal = function (e) {
+  e.preventDefault();
   modal.classList.add('hidden');
+  franchiseeModal.classList.add('hidden');
+  locationsModal.classList.add('hidden');
   overlay.classList.add('hidden');
 };
 
 btnsOpenModal.forEach(btn => btn.addEventListener('click', openModal));
-
-btnCloseModal.addEventListener('click', closeModal);
+btnsCloseModal.forEach(btn => btn.addEventListener('click', closeModal));
 overlay.addEventListener('click', closeModal);
 
 document.addEventListener('keydown', function (e) {
