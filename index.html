@@ -35,6 +35,9 @@
     <meta name="twitter:title" content="Little Fish Accounting | Xero Accounting Services" />
     <meta name="twitter:description" content="Expert accounting services for individuals and small businesses using Xero. We provide tailored financial solutions." />
     <meta name="twitter:image" content="https://ipfs.io/ipfs/QmUjNbFQtWrAGAjWVrCY186t6ho7fgcVpuXH2MUafxghAe?filename=littlefish.svg" />
+
+    
+
     
     <!-- Structured Data: JSON-LD for Business Information -->
     <script type="application/ld+json">
@@ -308,25 +311,22 @@
     <footer class="footer">
       <ul class="footer__nav">
         <li class="footer__item">
-          <a class="footer__link" href="#">About</a>
+          <a class="footer__link navigable" href="#about">About</a>
         </li>
         <li class="footer__item">
-          <a class="footer__link" href="#">Services</a>
+          <a class="footer__link navigable" href="#services">Services</a>
         </li>
         <li class="footer__item">
-          <a class="footer__link" href="#">Locations</a>
+          <a class="footer__link btn--show-modal" href="#">Locations</a>
         </li>
         <li class="footer__item">
-          <a class="footer__link btn--show-modal" href="#">Franchise Opportunities</a>
+          <a class="footer__link btn--show-modal" href="#">Franchise</a>
         </li>
-        <li class="footer__item">
+        <!-- <li class="footer__item">
           <a class="footer__link" href="#">Careers</a>
-        </li>
+        </li> -->
         <li class="footer__item">
-          <a class="footer__link" href="#">Blog</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__link" href="#">Contact Us</a>
+          <a class="footer__link btn--show-modal" href="#">Contact Us</a>
         </li>
       </ul>
       <img src="img/logo.svg" alt="Logo" class="footer__logo" />
@@ -340,55 +340,61 @@
         >.
       </p>
     </footer>
-    <!-- Contact Modal -->
-    <div class="modal hidden">
-      <button class="btn--close-modal">&times;</button>
-      <h2 class="modal__header">
+    <!-- Unified Contact Modal -->
+    <div class="modal hidden" role="dialog" aria-labelledby="unified-modal-header" aria-hidden="true">
+      <button class="btn--close-modal" aria-label="Close Contact Modal">&times;</button>
+      <h2 id="unified-modal-header" class="modal__header">
         Get In Touch With Us <span class="highlight">Today!</span>
       </h2>
-      <form class="modal__form">
-        <label>First Name</label>
-        <input type="text" />
-        <label>Last Name</label>
-        <input type="text" />
-        <label>Email Address</label>
-        <input type="email" />
-        <button class="btn">Next step &rarr;</button>
+      <form class="modal__form" aria-label="Unified Contact Form">
+        <label for="first-name">First Name</label>
+        <input id="first-name" type="text" name="first-name"  autocomplete="given-name" required aria-required="true" />
+        <label for="last-name">Last Name</label>
+        <input id="last-name" type="text" name="last-name" required aria-required="true" />
+        <label for="email">Email Address</label>
+        <input id="email" type="email" name="email"  autocomplete="email" required aria-required="true" />
+
+        <fieldset class="form__fieldset">
+          <legend>Nature of Enquiry</legend>
+          <div class="form__checkbox-group">
+            <input id="enquiry-accountant" type="checkbox" name="enquiry" value="accountant" />
+            <label for="enquiry-accountant">Looking for an Accountant</label>
+          </div>
+          <div class="form__checkbox-group">
+            <input id="enquiry-franchisee" type="checkbox" name="enquiry" value="franchisee" />
+            <label for="enquiry-franchisee">Interested in Becoming a Franchisee</label>
+          </div>
+        </fieldset>
+
+        <button class="btn" type="submit">Submit &rarr;</button>
       </form>
     </div>
-    <!-- Franchisee Modal -->
-    <div class="modal franchisee hidden">
-      <button class="btn--close-modal">&times;</button>
-      <h2 class="modal__header">
-        Join the Team <span class="highlight">Today!</span>
-      </h2>
-      <form class="modal__form">
-        <label>First Name</label>
-        <input type="text" />
-        <label>Last Name</label>
-        <input type="text" />
-        <label>Email Address</label>
-        <input type="email" />
-        <button class="btn">Next step &rarr;</button>
-      </form>
-    </div>
+
     <!-- Locations Modal -->
-    <div class="modal locations hidden">
-      <button class="btn--close-modal">&times;</button>
-      <h2 class="modal__header">
+    <div class="modal locations hidden" role="dialog" aria-labelledby="locations-modal-header" aria-hidden="true">
+      <button class="btn--close-modal" aria-label="Close Locations Modal">&times;</button>
+      <h2 id="locations-modal-header" class="modal__header">
         Find Your Local <span class="highlight">Office</span>
       </h2>
-      <form class="modal__form">
-        <label>First Name</label>
-        <input type="text" />
-        <label>Last Name</label>
-        <input type="text" />
-        <label>Email Address</label>
-        <input type="email" />
-        <button class="btn">Next step &rarr;</button>
-      </form>
+      <div class="locations__cards">
+        <div class="location__card">
+          <h3 class="location__name">Sydney Office</h3>
+          <p class="location__details">123 Harbour Street, Sydney, NSW 2000</p>
+          <p class="location__phone">Phone: +61-2-1234-5678</p>
+        </div>
+        <div class="location__card">
+          <h3 class="location__name">Melbourne Office</h3>
+          <p class="location__details">456 Collins Street, Melbourne, VIC 3000</p>
+          <p class="location__phone">Phone: +61-3-8765-4321</p>
+        </div>
+        <div class="location__card">
+          <h3 class="location__name">Brisbane Office</h3>
+          <p class="location__details">789 Queen Street, Brisbane, QLD 4000</p>
+          <p class="location__phone">Phone: +61-7-2345-6789</p>
+        </div>
+      </div>
     </div>
     <!-- Overlay / Background Blur -->
-    <div class="overlay hidden"></div>
+    <div class="overlay hidden" aria-hidden="true"></div>
   </body>
 </html>

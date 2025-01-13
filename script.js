@@ -4,78 +4,73 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnsCloseModal = document.querySelectorAll('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+const locationsModal = document.querySelector('.locations');
 const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
+const section1 = document.querySelector('#about');
 const nav = document.querySelector('.nav');
 const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
 const tabsContent = document.querySelectorAll('.operations__content');
-const franchiseeModal = document.querySelector('.franchisee');
-const locationsModal = document.querySelector('.locations');
 const navigable = document.querySelectorAll('.navigable');
+const body = document.body;
 
 ///////////////////////////////////////
 // Modal window
 
 const openModal = function (e) {
   e.preventDefault();
-  console.log(e.target);
-  if (e.target.textContent === 'Contact Us' || e.target.textContent === 'Enquire Now') {
+  const targetText = e.target.textContent;
+
+  // Open the correct modal based on button text
+  if (targetText === 'Contact Us' || targetText === 'Enquire Now' || targetText === 'Franchise') {
     modal.classList.remove('hidden');
-  } else if (e.target.textContent === 'Franchise Opportunities') {
-    franchiseeModal.classList.remove('hidden');
-  } else if (e.target.textContent === 'Locations') {
+    modal.setAttribute('aria-hidden', 'false');
+    modal.querySelector('button, [href], input, select, textarea').focus(); // Focus on the first interactive element
+  } else if (targetText === 'Locations') {
     locationsModal.classList.remove('hidden');
+    locationsModal.setAttribute('aria-hidden', 'false');
+    locationsModal.querySelector('button, [href], input, select, textarea').focus(); // Focus on the first interactive element
   }
   overlay.classList.remove('hidden');
 };
 
-const closeModal = function (e) {
-  e.preventDefault();
+const closeModal = function () {
+  // Add 'hidden' to both modals and update aria-hidden attributes
   modal.classList.add('hidden');
-  franchiseeModal.classList.add('hidden');
+  modal.setAttribute('aria-hidden', 'true');
   locationsModal.classList.add('hidden');
+  locationsModal.setAttribute('aria-hidden', 'true');
+  
+  // Hide overlay
   overlay.classList.add('hidden');
 };
 
+// Add event listeners to open modals
 btnsOpenModal.forEach(btn => btn.addEventListener('click', openModal));
+
+// Add event listeners to close modals
 btnsCloseModal.forEach(btn => btn.addEventListener('click', closeModal));
 overlay.addEventListener('click', closeModal);
 
 document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+  // Close modal on 'Escape' key if any modal is open
+  if (e.key === 'Escape' && (!modal.classList.contains('hidden') || !locationsModal.classList.contains('hidden'))) {
     closeModal();
   }
 });
 
 ///////////////////////////////////////
-// Button scrolling
+// Learn More Button scrolling
 btnScrollTo.addEventListener('click', function (e) {
-  const s1coords = section1.getBoundingClientRect();
-  console.log(s1coords);
-
-  console.log(e.target.getBoundingClientRect());
-
-  console.log('Current scroll (X/Y)', window.scrollX, window.scrollY);
-
-  console.log(
-    'height/width viewport',
-    document.documentElement.clientHeight,
-    document.documentElement.clientWidth
-  );
-
-  // Scrolling
-  // window.scrollTo(
-  //   s1coords.left + window.pageXOffset,
-  //   s1coords.top + window.pageYOffset
+  // const s1coords = section1.getBoundingClientRect();
+  // console.log(s1coords);
+  // console.log(e.target.getBoundingClientRect());
+  // console.log('Current scroll (X/Y)', window.scrollX, window.scrollY);
+  // console.log(
+  //   'height/width viewport',
+  //   document.documentElement.clientHeight,
+  //   document.documentElement.clientWidth
   // );
-
-  // window.scrollTo({
-  //   left: s1coords.left + window.pageXOffset,
-  //   top: s1coords.top + window.pageYOffset,
-  //   behavior: 'smooth',
-  // });
-
   section1.scrollIntoView({ behavior: 'smooth' });
 });
 
@@ -257,7 +252,7 @@ const slider = function () {
     goToSlide(curSlide);
     activateDot(curSlide);
   };
-
+  // Prev slide
   const prevSlide = function () {
     if (curSlide === 0) {
       curSlide = maxSlide - 1;
@@ -267,7 +262,7 @@ const slider = function () {
     goToSlide(curSlide);
     activateDot(curSlide);
   };
-
+  // Init slide
   const init = function () {
     goToSlide(0);
     createDots();

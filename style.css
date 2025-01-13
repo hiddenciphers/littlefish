@@ -663,8 +663,12 @@ h4 {
   opacity: 0;
 }
 
+.locations__cards {
+  font-size: 1.5rem;
+}
+
 /* COOKIE MESSAGE */
-.cookie-message {
+/* .cookie-message {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -673,4 +677,102 @@ h4 {
   color: #bbb;
   font-size: 1.5rem;
   font-weight: 400;
+} */
+
+.modal__form .form__fieldset {
+  grid-column: 1 / span 2;
+  margin-top: 1rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+  border: none;
 }
+
+.modal__form .form__checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal__form .form__checkbox-group input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  accent-color: #007bff; /* Optional: Adjust to match the theme color */
+  cursor: pointer;
+}
+
+.modal__form .form__checkbox-group label {
+  font-size: 1.7rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+/* MEDIA QUERIES */
+
+/* Large desktops */
+@media (min-width: 1470px) {
+  body {
+    font-size: 1.8rem;
+  }
+
+  .nav {
+    padding: 1.5rem 3rem;
+  }
+
+  .header__title > h1 {
+    font-size: 7rem;
+    margin-left: -7rem;
+  }
+
+  .header__img {
+    width: 120%;
+    margin-left: 5rem;
+  }
+
+  .nav__links {
+    gap: 3rem;
+  }
+
+  .features__feature {
+    font-size: 2rem;
+  }
+}
+
+/* Tablets in portrait mode */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  body {
+    font-size: 1.4rem;
+  }
+
+  /* .nav {
+    flex-direction: column;
+  } */
+
+  .nav__links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header__title {
+    font-size: 1.8rem;
+  }
+}
+
+/* Smaller mobile devices */
+/* @media (max-width: 480px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  .nav {
+    padding: 1rem;
+  }
+
+  .header__title {
+    font-size: 1.6rem;
+  }
+
+  .nav__links {
+    gap: 1rem;
+  }
+} */
+
