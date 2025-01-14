@@ -799,7 +799,7 @@ h4 {
 }
 
 /* Smaller mobile devices */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   body {
     font-size: 1.2rem;
   }
