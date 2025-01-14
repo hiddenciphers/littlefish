@@ -60,6 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  document.querySelector('.nav__toggle').addEventListener('click', function () {
+    document.querySelector('.nav__links').classList.toggle('nav__links--visible');
+  });
+
   ///////////////////////////////////////
   // Learn More Button scrolling
   btnScrollTo.addEventListener('click', function (e) {

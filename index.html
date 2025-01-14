@@ -75,6 +75,11 @@
           class="nav__logo"
           id="logo"
         />
+        <button class="nav__toggle" aria-label="Toggle navigation">
+          <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 6h18M3 12h18m-18 6h18" stroke="#000" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
         <ul class="nav__links">
           <li class="nav__item">
             <a class="nav__link navigable" href="#about">About</a>
@@ -122,27 +127,27 @@
           src="img/digital-lazy.jpg"
           data-src="img/digital.jpg"
           alt="Computer"
-          class="features__img lazy-img"
+          class="features__img lazy-img left__img"
         />
         <div class="features__feature">
-          <div class="features__icon">
+          <div class="features__icon feature__icon__1">
             <svg>
               <use xlink:href="img/icons.svg#icon-monitor"></use>
             </svg>
           </div>
-          <h5 class="features__header">Empowering Solutions</h5>
-          <p>
+          <h5 class="features__header features__header__1">Empowering Solutions</h5>
+          <p class="feature__1">
             Little Fish Accounting is designed to empower independent accountants and small businesses.
           </p>
         </div>
-        <div class="features__feature">
-          <div class="features__icon">
+        <div class="features__feature feature__item__2">
+          <div class="features__icon feature__icon__2">
             <svg>
               <use xlink:href="img/icons.svg#icon-trending-up"></use>
             </svg>
           </div>
-          <h5 class="features__header">Xero-Focused Accounting</h5>
-          <p>
+          <h5 class="features__header features__header__2">Xero-Focused Accounting</h5>
+          <p class="feature__2">
             Specialising in Xero, we bridge the gap between personalised service and professional expertise.
           </p>
         </div>
@@ -150,22 +155,22 @@
           src="img/grow-lazy.jpg"
           data-src="img/grow.jpg"
           alt="Plant"
-          class="features__img lazy-img"
+          class="features__img lazy-img plant"
         />
         <img
           src="img/support-lazy.jpg"
           data-src="img/support.jpg"
           alt="Credit card"
-          class="features__img lazy-img"
+          class="features__img lazy-img left__img"
         />
         <div class="features__feature">
-          <div class="features__icon">
+          <div class="features__icon feature__icon__3">
             <svg>
               <use xlink:href="img/icons.svg#icon-thumbs-up"></use>
             </svg>
           </div>
-          <h5 class="features__header">Providing Opportunity & Support</h5>
-          <p>
+          <h5 class="features__header features__header__3">Providing Opportunity & Support</h5>
+          <p class="feature__3">
             Our mission is to create a franchise model that provides a supportive community for accountants, helping them thrive while delivering tailored solutions for individuals and small enterprises. At Little Fish Accounting, we believe even the smallest ventures deserve big support.
           </p>
         </div>
@@ -326,7 +331,7 @@
           <a class="footer__link" href="#">Careers</a>
         </li> -->
         <li class="footer__item">
-          <a class="footer__link btn--show-modal" href="#">Contact Us</a>
+          <a class="footer__link btn--show-modal" href="#">Contact</a>
         </li>
       </ul>
       <img src="img/logo.svg" alt="Logo" class="footer__logo" />
