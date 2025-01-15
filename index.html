@@ -346,7 +346,7 @@
       </p>
     </footer>
     <!-- Unified Contact Modal -->
-    <div class="modal hidden" role="dialog" aria-labelledby="unified-modal-header" aria-hidden="true">
+    <div class="modal hidden" role="dialog" aria-labelledby="unified-modal-header" inert>
       <button class="btn--close-modal" aria-label="Close Contact Modal">&times;</button>
       <h2 id="unified-modal-header" class="modal__header">
         Get In Touch With Us <span class="highlight">Today!</span>
@@ -362,11 +362,11 @@
         <fieldset class="form__fieldset">
           <legend>Nature of Enquiry</legend>
           <div class="form__checkbox-group">
-            <input id="enquiry-accountant" type="checkbox" name="enquiry" value="accountant" />
+            <input id="enquiry-accountant" type="checkbox" name="enquiry-accountant" value="accountant" />
             <label for="enquiry-accountant">Looking for an Accountant</label>
           </div>
           <div class="form__checkbox-group">
-            <input id="enquiry-franchisee" type="checkbox" name="enquiry" value="franchisee" />
+            <input id="enquiry-franchisee" type="checkbox" name="enquiry-franchisee" value="franchisee" />
             <label for="enquiry-franchisee">Interested in Becoming a Franchisee</label>
           </div>
         </fieldset>
@@ -375,8 +375,17 @@
       </form>
     </div>
 
+    <!-- Confirmation Modal -->
+    <div class="modal confirmation hidden" role="dialog"    aria-labelledby="confirmation-modal-header" inert>
+      <button class="btn--close-modal" aria-label="Close Confirmation Modal">&times;</button>
+      <h2 id="confirmation-modal-header" class="modal__header">
+        Thank You! <span class="highlight">Your Form Has Been     Submitted</span>
+      </h2>
+      <p>Your request has been successfully submitted. We’ll get back to you shortly.</p>
+    </div>
+
     <!-- Locations Modal -->
-    <div class="modal locations hidden" role="dialog" aria-labelledby="locations-modal-header" aria-hidden="true">
+    <div class="modal locations hidden" role="dialog" aria-labelledby="locations-modal-header" inert>
       <button class="btn--close-modal" aria-label="Close Locations Modal">&times;</button>
       <h2 id="locations-modal-header" class="modal__header">
         Find Your <span class="highlight">Local</span>

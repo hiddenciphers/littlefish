@@ -13,7 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabsContainer = document.querySelector('.operations__tab-container');
   const tabsContent = document.querySelectorAll('.operations__content');
   const navigable = document.querySelectorAll('.navigable');
-  const body = document.body;
+  const form = document.querySelector('.modal__form');
+  const confirmationModal = document.querySelector('.confirmation');
+  const checkboxes = form.querySelectorAll(
+    'input[name="enquiry-accountant"], input[name="enquiry-franchisee"]'
+  );
+  
+  const checkboxesContainer = form.querySelector('.form__fieldset');
+  const errorMessage = document.createElement('p');
+
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('click', () => {
+      console.log(`${checkbox.id} toggled to ${checkbox.checked}`);
+    });
+  });
+  
 
   ///////////////////////////////////////
   // Modal window
@@ -25,11 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Open the correct modal based on button text
     if (targetText === 'Contact Us' || targetText === 'Contact' || targetText === 'Enquire Now' || targetText === 'Franchise') {
       modal.classList.remove('hidden');
-      modal.setAttribute('aria-hidden', 'false');
+      modal.removeAttribute('inert');
       modal.querySelector('button, [href], input, select, textarea').focus(); // Focus on the first interactive element
     } else if (targetText === 'Locations') {
       locationsModal.classList.remove('hidden');
-      locationsModal.setAttribute('aria-hidden', 'false');
+      locationsModal.removeAttribute('inert');
       locationsModal.querySelector('button, [href], input, select, textarea').focus(); // Focus on the first interactive element
     }
     overlay.classList.remove('hidden');
@@ -38,9 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeModal = function () {
     // Add 'hidden' to both modals and update aria-hidden attributes
     modal.classList.add('hidden');
-    modal.setAttribute('aria-hidden', 'true');
+    modal.setAttribute('inert', '');
     locationsModal.classList.add('hidden');
-    locationsModal.setAttribute('aria-hidden', 'true');
+    locationsModal.setAttribute('inert', '');
 
     // Hide overlay
     overlay.classList.add('hidden');
@@ -60,6 +74,90 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Style error message
+  errorMessage.textContent = 'Please select at least one option.';
+  errorMessage.style.color = 'red';
+  errorMessage.style.fontSize = '1.2rem';
+  errorMessage.style.display = 'none';
+  checkboxesContainer.appendChild(errorMessage);
+
+  const showConfirmationModal = function () {
+    confirmationModal.classList.remove('hidden');
+    confirmationModal.removeAttribute('inert');
+    overlay.classList.remove('hidden');
+  };
+
+  const closeConfirmationModal = function () {
+    confirmationModal.classList.add('hidden');
+    confirmationModal.setAttribute('inert', '');
+    overlay.classList.add('hidden');
+  };
+
+  // Close confirmation modal on clicking close button or overlay
+  confirmationModal.querySelector('.btn--close-modal').addEventListener('click', closeConfirmationModal);
+  overlay.addEventListener('click', closeConfirmationModal);
+
+  // Form submission handler
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent default form submission
+  
+    const emailInput = form.querySelector('#email');
+    const emailValue = emailInput.value.trim();
+    const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+    // Validate email
+    if (!emailValue) {
+      alert('Please enter a valid email address.');
+      emailInput.focus();
+      return;
+    }
+  
+    // Validate checkboxes
+    if (!isChecked) {
+      errorMessage.style.display = 'block'; // Show error message
+      return;
+    }
+  
+    errorMessage.style.display = 'none'; // Hide error message
+    showConfirmationModal(); // Show confirmation modal
+    form.reset(); // Reset form fields
+  });
+  
+
+  const trapFocus = function (event) {
+    const focusableElements = modal.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+  
+    if (event.key === 'Tab') {
+      if (event.shiftKey && document.activeElement === firstElement) {
+        // Shift+Tab pressed on the first element - focus last
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        // Tab pressed on the last element - focus first
+        event.preventDefault();
+        firstElement.focus();
+      }
+    }
+  };
+  
+  // Attach focus trap on modal open
+  document.addEventListener('keydown', function (event) {
+    if (!modal.classList.contains('hidden')) {
+      trapFocus(event);
+    }
+  });
+  
+  // Close confirmation modal on Escape key press
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !confirmationModal.classList.contains('hidden')) {
+      closeConfirmationModal();
+    }
+  });
+ ///////////////////////////////////////
   document.querySelector('.nav__toggle').addEventListener('click', function () {
     document.querySelector('.nav__links').classList.toggle('nav__links--visible');
   });
