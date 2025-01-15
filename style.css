@@ -742,7 +742,7 @@ h4 {
 }
 
 /* Tablets in portrait mode */
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+@media only screen and (min-width: 48rem) and (max-width: 64rem) and (orientation: portrait) {
   body {
     font-size: 1.4rem;
   }
@@ -799,7 +799,7 @@ h4 {
 }
 
 /* Smaller mobile devices */
-@media (max-width: 480px) {
+@media (max-width: 30rem) {
   body {
     font-size: 1.2rem;
   }

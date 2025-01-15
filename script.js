@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetText = e.target.textContent;
 
     // Open the correct modal based on button text
-    if (targetText === 'Contact Us' || targetText === 'Enquire Now' || targetText === 'Franchise') {
+    if (targetText === 'Contact Us' || targetText === 'Contact' || targetText === 'Enquire Now' || targetText === 'Franchise') {
       modal.classList.remove('hidden');
       modal.setAttribute('aria-hidden', 'false');
       modal.querySelector('button, [href], input, select, textarea').focus(); // Focus on the first interactive element
