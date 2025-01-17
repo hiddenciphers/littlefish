@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="./img/icon.svg" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap" rel="stylesheet" />
+    <title>Contact Us | Little Fish Accounting</title>
+    <link rel="stylesheet" href="../style.css">
+    <script defer src="./form.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <!-- Navigation -->
+        <nav class="nav">
+          <img
+            src="../img/logo.png"
+            alt="Little Fish Logo"
+            class="nav__logo"
+            id="logo"
+          />
+          <button class="nav__toggle" aria-label="Toggle navigation">
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 6h18M3 12h18m-18 6h18" stroke="#000" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+          <ul class="nav__links">
+            <li class="nav__item">
+              <a class="nav__link navigable" href="#about">About</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link navigable" href="#services">Services</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link btn--show-modal" href="#locations">Locations</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link nav__link--btn btn--show-modal" href="#contact">Contact Us</a>
+            </li>
+          </ul>
+        </nav>
+        <!-- Header Title -->
+        <div class="header__title">
+          <h1>
+            Everything
+            <!-- Green highlight effect -->
+            <span class="highlight">simple</span>
+            as<br />
+            <span class="highlight">possible</span>
+          </h1>
+          <h4>Accounting Solutions Tailored for the Little Guys.</h4>
+          <button class="btn--text btn--scroll-to">Learn more &DownArrow;</button>
+          <img
+            src="../img/hero.jpg"
+            class="header__img"
+            alt="Accountant Performing Calculations"
+          />
+        </div>
+      </header>
+      <!-- About Section -->
+      <section class="section" id="about">
+        <div class="section__title">
+          <h2 class="section__description">About</h2>
+          <h3 class="section__header">
+            Everything you need in a modern accounting firm.
+          </h3>
+        </div>
+  
+        <div class="features">
+          <img
+            src="../img/digital-lazy.jpg"
+            data-src="../img/digital.jpg"
+            alt="Computer"
+            class="features__img lazy-img left__img"
+          />
+          <div class="features__feature">
+            <div class="features__icon feature__icon__1">
+              <svg>
+                <use xlink:href="../img/icons.svg#icon-monitor"></use>
+              </svg>
+            </div>
+            <h5 class="features__header features__header__1">Empowering Solutions</h5>
+            <p class="feature__1">
+              Little Fish Accounting is designed to empower independent accountants and small businesses.
+            </p>
+          </div>
+          <div class="features__feature feature__item__2">
+            <div class="features__icon feature__icon__2">
+              <svg>
+                <use xlink:href="../img/icons.svg#icon-trending-up"></use>
+              </svg>
+            </div>
+            <h5 class="features__header features__header__2">Xero-Focused Accounting</h5>
+            <p class="feature__2">
+              Specialising in Xero, we bridge the gap between personalised service and professional expertise.
+            </p>
+          </div>
+          <img
+            src="../img/grow-lazy.jpg"
+            data-src="../img/grow.jpg"
+            alt="Plant"
+            class="features__img lazy-img plant"
+          />
+          <img
+            src="../img/support-lazy.jpg"
+            data-src="../img/support.jpg"
+            alt="Credit card"
+            class="features__img lazy-img left__img"
+          />
+          <div class="features__feature">
+            <div class="features__icon feature__icon__3">
+              <svg>
+                <use xlink:href="../img/icons.svg#icon-thumbs-up"></use>
+              </svg>
+            </div>
+            <h5 class="features__header features__header__3">Providing Opportunity & Support</h5>
+            <p class="feature__3">
+              Our mission is to create a franchise model that provides a supportive community for accountants, helping them thrive while delivering tailored solutions for individuals and small enterprises. At Little Fish Accounting, we believe even the smallest ventures deserve big support.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Services Section -->
+      <section class="section" id="services">
+        <div class="section__title">
+          <h2 class="section__description">Services</h2>
+          <h3 class="section__header">
+            Accounting Simplified.
+          </h3>
+        </div>
+  
+        <div class="operations">
+          <div class="operations__tab-container">
+            <button
+              class="btn operations__tab operations__tab--1 operations__tab--active" data-tab="1">
+              <span>01</span>Cloud Based Accounting
+            </button>
+            <button class="btn operations__tab operations__tab--2" data-tab="2">
+              <span>02</span>Tax and Financial Services
+            </button>
+            <button class="btn operations__tab operations__tab--3" data-tab="3">
+              <span>03</span>Comprehensive Support
+            </button>
+          </div>
+          <div
+            class="operations__content operations__content--1 operations__content--active"
+          >
+            <div class="operations__icon operations__icon--1">
+              <svg>
+                <use xlink:href="../img/icons.svg#icon-upload-cloud"></use>
+              </svg>
+            </div>
+            <h5 class="operations__header">
+              Simplify Your Finances with Xero.
+            </h5>
+            <p>
+              We specialise in Xero setup, training, and ongoing support, empowering individuals and small businesses to manage their finances effortlessly. From bookkeeping and bank reconciliation to BAS and GST compliance, we make financial management seamless and stress-free.
+            </p>
+          </div>
+  
+          <div class="operations__content operations__content--2">
+            <div class="operations__icon operations__icon--2">
+              <svg>
+                <use xlink:href="../img/icons.svg#icon-dollar-sign"></use>
+              </svg>
+            </div>
+            <h5 class="operations__header">
+              Expert Tax and Financial Solutions.
+            </h5>
+            <p>
+              Our services include tax preparation, payroll management, and detailed financial reporting. Whether you’re filing a tax return or analysing cash flow, we provide insights and strategies to maximise savings and drive growth.
+            </p>
+          </div>
+          <div class="operations__content operations__content--3">
+            <div class="operations__icon operations__icon--3">
+              <svg>
+                <use xlink:href="../img/icons.svg#icon-feather"></use>
+              </svg>
+            </div>
+            <h5 class="operations__header">
+              Empowering Accountants and Entrepreneurs.
+            </h5>
+            <p>
+              As a franchise-driven network, we offer tools, resources, and mentorship for accountants, alongside advisory services for small businesses. Join us to deliver personalised solutions and thrive in your accounting journey.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Testimonials Section -->
+      <section class="section" id="testimonials">
+        <div class="section__title section__title--testimonials">
+          <h2 class="section__description">Not sure yet?</h2>
+          <h3 class="section__header">
+            Our team of friendly professionals are already making clients lifes simpler.
+          </h3>
+        </div>
+  
+        <div class="slider">
+          <div class="slide">
+            <div class="testimonial">
+              <h5 class="testimonial__header">Stress-Free Accounting Made Possible!</h5>
+              <blockquote class="testimonial__text">
+                Little Fish Accounting transformed the way I manage my business finances. Their Xero training was straightforward, and the ongoing support has been a lifesaver. Now I can focus on growing my business while they handle the numbers!
+              </blockquote>
+              <address class="testimonial__author">
+                <img src="../img/user-1.jpg" alt="Client's Photo" class="testimonial__photo" />
+                <h6 class="testimonial__name">Steve N</h6>
+                <p class="testimonial__occupation">Small Business Owner</p>
+              </address>
+            </div>
+          </div>
+  
+          <div class="slide">
+            <div class="testimonial">
+              <h5 class="testimonial__header">
+                Expert Guidance Every Step of the Way
+              </h5>
+              <blockquote class="testimonial__text">
+                As an independent accountant, joining the Little Fish franchise was the best decision I’ve made. The resources and mentorship have helped me scale my practice, while still delivering top-notch service to my clients.
+              </blockquote>
+              <address class="testimonial__author">
+                <img src="../img/user-2.jpg" alt="Client's Photo" class="testimonial__photo" />
+                <h6 class="testimonial__name">Sarah L</h6>
+                <p class="testimonial__occupation">Franchise Partner</p>
+              </address>
+            </div>
+          </div>
+  
+          <div class="slide">
+            <div class="testimonial">
+              <h5 class="testimonial__header">
+                Tailored Solutions That Deliver Results
+              </h5>
+              <blockquote class="testimonial__text">
+                The team at Little Fish Accounting doesn’t just crunch numbers – they provide valuable insights that have helped my business thrive. Their financial reporting and tax strategies have saved me time and money year after year.
+              </blockquote>
+              <address class="testimonial__author">
+                <img src="../img/user-3.jpg" alt="Client's Photo" class="testimonial__photo" />
+                <h6 class="testimonial__name">Max P</h6>
+                <p class="testimonial__occupation">Entrepreneur</p>
+              </address>
+            </div>
+          </div>
+          <!-- Slider -->
+          <button class="slider__btn slider__btn--left">&larr;</button>
+          <button class="slider__btn slider__btn--right">&rarr;</button>
+          <div class="dots"></div>
+        </div>
+      </section>
+      <!-- Closing Section -->
+      <section class="section section--sign-up">
+        <div class="section__title">
+          <h3 class="section__header">
+            Join the Team and Simplify Your Accounting Today!
+          </h3>
+        </div>
+        <button class="btn btn--show-modal">Enquire Now</button>
+      </section>
+      <!-- Footer -->
+      <footer class="footer">
+        <ul class="footer__nav">
+          <li class="footer__item">
+            <a class="footer__link navigable" href="#about">About</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link navigable" href="#services">Services</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link btn--show-modal" href="#">Locations</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link btn--show-modal" href="#">Franchise</a>
+          </li>
+          <!-- <li class="footer__item">
+            <a class="footer__link" href="#">Careers</a>
+          </li> -->
+          <li class="footer__item">
+            <a class="footer__link btn--show-modal" href="#">Contact</a>
+          </li>
+        </ul>
+        <img src="../img/logo.svg" alt="Logo" class="footer__logo" />
+        <p class="footer__copyright">
+          &copy;
+          <a
+            class="footer__link twitter-link"
+            target="_blank"
+            href="https://hiddenciphers.com"
+            >World Class Web Solutions</a
+          >.
+        </p>
+      </footer>
+    <div class="modal">
+        <button class="btn--close-modal" aria-label="Close Contact Modal">&times;</button>
+        <h2 id="unified-modal-header" class="modal__header">
+            Get In Touch With Us <span class="highlight">Today!</span>
+        </h2>
+        <form class="modal__form" aria-label="Contact Form">
+            <label for="given-name">First Name</label>
+            <input 
+                id="given-name"
+                type="text"
+                name="given-name"
+                required 
+                aria-required="true"
+                autocomplete="given-name"
+            />
+            
+            <label for="family-name">Last Name</label>
+            <input 
+                id="family-name"
+                type="text"
+                name="family-name"
+                required 
+                aria-required="true"
+                autocomplete="family-name"
+            />
+            
+            <label for="email">Email Address</label>
+            <input 
+                id="email"
+                type="email"
+                name="email"
+                required 
+                aria-required="true"
+                autocomplete="email"
+            />
+            
+            <fieldset class="form__fieldset">
+                <legend>Nature of Enquiry</legend>
+                <div class="form__checkbox-group">
+                    <input 
+                        id="enquiry-accountant" 
+                        type="checkbox" 
+                        name="enquiry-type" 
+                        value="accountant" 
+                        class="checkbox"
+                    />
+                    <label for="enquiry-accountant">Looking for an Accountant</label>
+                </div>
+                <div class="form__checkbox-group">
+                    <input 
+                        id="enquiry-franchisee" 
+                        type="checkbox" 
+                        name="enquiry-type" 
+                        value="franchisee" 
+                        class="checkbox"
+                    />
+                    <label for="enquiry-franchisee">Interested in Becoming a Franchisee</label>
+                </div>
+            </fieldset>
+            
+            <button class="btn" type="submit">Submit &rarr;</button>
+        </form>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal confirmation hidden" role="dialog" aria-labelledby="confirmation-modal-header" inert>
+        <button class="btn--close-modal close--confirm" aria-label="Close Confirmation Modal">&times;</button>
+        <h2 id="confirmation-modal-header" class="modal__header">
+            <span class="highlight">Thank You!</span>
+            <br>Your Enquiry Has Been <span class="highlight">Submitted</span>
+        </h2>
+        <p>Your enquiry has been successfully submitted. We'll get back to you shortly.</p>
+    </div>
+    <!-- Overlay / Background Blur -->
+    <div class="overlay" aria-hidden="true"></div>
+</body>
+</html>

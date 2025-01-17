@@ -662,9 +662,13 @@ h4 {
   background: none;
 }
 
+.close--confirm {
+  margin-top: -1rem;
+}
+
 .modal.confirmation {
   text-align: center;
-  padding: 2rem;
+  padding: 4rem;
 }
 
 .modal.confirmation .modal__header {
@@ -673,9 +677,10 @@ h4 {
 }
 
 .modal.confirmation p {
-  font-size: 1.2rem;
+  font-family: inherit;
+  
+  font-size: 1.4rem;
 }
-
 
 .hidden {
   visibility: hidden;
@@ -685,18 +690,6 @@ h4 {
 .locations__cards {
   font-size: 1.5rem;
 }
-
-/* COOKIE MESSAGE */
-/* .cookie-message {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-  background-color: white;
-  color: #bbb;
-  font-size: 1.5rem;
-  font-weight: 400;
-} */
 
 .modal__form .form__fieldset {
   grid-column: 1 / span 2;
@@ -724,6 +717,7 @@ h4 {
   font-weight: 400;
   cursor: pointer;
 }
+
 
 
 @media (min-width: 91.875rem) {

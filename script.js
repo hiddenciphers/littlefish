@@ -13,46 +13,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabsContainer = document.querySelector('.operations__tab-container');
   const tabsContent = document.querySelectorAll('.operations__content');
   const navigable = document.querySelectorAll('.navigable');
-  const form = document.querySelector('.modal__form');
-  const confirmationModal = document.querySelector('.confirmation');
-  const checkboxes = form.querySelectorAll(
-    'input[name="enquiry-accountant"], input[name="enquiry-franchisee"]'
-  );
-  
-  const checkboxesContainer = form.querySelector('.form__fieldset');
-  const errorMessage = document.createElement('p');
-
-  checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('click', () => {
-      console.log(`${checkbox.id} toggled to ${checkbox.checked}`);
-    });
-  });
-  
-
-  ///////////////////////////////////////
+  /////////////////////////////////////////////////
   // Modal window
-
   const openModal = function (e) {
     e.preventDefault();
     const targetText = e.target.textContent;
 
     // Open the correct modal based on button text
     if (targetText === 'Contact Us' || targetText === 'Contact' || targetText === 'Enquire Now' || targetText === 'Franchise') {
-      modal.classList.remove('hidden');
-      modal.removeAttribute('inert');
-      modal.querySelector('button, [href], input, select, textarea').focus(); // Focus on the first interactive element
+      window.location.href = './form/contact.html';
     } else if (targetText === 'Locations') {
       locationsModal.classList.remove('hidden');
       locationsModal.removeAttribute('inert');
-      locationsModal.querySelector('button, [href], input, select, textarea').focus(); // Focus on the first interactive element
     }
     overlay.classList.remove('hidden');
   };
 
   const closeModal = function () {
-    // Add 'hidden' to both modals and update aria-hidden attributes
-    modal.classList.add('hidden');
-    modal.setAttribute('inert', '');
     locationsModal.classList.add('hidden');
     locationsModal.setAttribute('inert', '');
 
@@ -73,111 +50,18 @@ document.addEventListener('DOMContentLoaded', () => {
       closeModal();
     }
   });
-
-  // Style error message
-  errorMessage.textContent = 'Please select at least one option.';
-  errorMessage.style.color = 'red';
-  errorMessage.style.fontSize = '1.2rem';
-  errorMessage.style.display = 'none';
-  checkboxesContainer.appendChild(errorMessage);
-
-  const showConfirmationModal = function () {
-    confirmationModal.classList.remove('hidden');
-    confirmationModal.removeAttribute('inert');
-    overlay.classList.remove('hidden');
-  };
-
-  const closeConfirmationModal = function () {
-    confirmationModal.classList.add('hidden');
-    confirmationModal.setAttribute('inert', '');
-    overlay.classList.add('hidden');
-  };
-
-  // Close confirmation modal on clicking close button or overlay
-  confirmationModal.querySelector('.btn--close-modal').addEventListener('click', closeConfirmationModal);
-  overlay.addEventListener('click', closeConfirmationModal);
-
-  // Form submission handler
-  form.addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent default form submission
-  
-    const emailInput = form.querySelector('#email');
-    const emailValue = emailInput.value.trim();
-    const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
-
-    // Validate email
-    if (!emailValue) {
-      alert('Please enter a valid email address.');
-      emailInput.focus();
-      return;
-    }
-  
-    // Validate checkboxes
-    if (!isChecked) {
-      errorMessage.style.display = 'block'; // Show error message
-      return;
-    }
-  
-    errorMessage.style.display = 'none'; // Hide error message
-    showConfirmationModal(); // Show confirmation modal
-    form.reset(); // Reset form fields
-  });
-  
-
-  const trapFocus = function (event) {
-    const focusableElements = modal.querySelectorAll(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    );
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements[focusableElements.length - 1];
-  
-    if (event.key === 'Tab') {
-      if (event.shiftKey && document.activeElement === firstElement) {
-        // Shift+Tab pressed on the first element - focus last
-        event.preventDefault();
-        lastElement.focus();
-      } else if (!event.shiftKey && document.activeElement === lastElement) {
-        // Tab pressed on the last element - focus first
-        event.preventDefault();
-        firstElement.focus();
-      }
-    }
-  };
-  
-  // Attach focus trap on modal open
-  document.addEventListener('keydown', function (event) {
-    if (!modal.classList.contains('hidden')) {
-      trapFocus(event);
-    }
-  });
-  
-  // Close confirmation modal on Escape key press
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !confirmationModal.classList.contains('hidden')) {
-      closeConfirmationModal();
-    }
-  });
- ///////////////////////////////////////
+  ///////////////////////////////////////////////////////
   document.querySelector('.nav__toggle').addEventListener('click', function () {
     document.querySelector('.nav__links').classList.toggle('nav__links--visible');
   });
 
-  ///////////////////////////////////////
+  //////////////////////////////////////////////////////
   // Learn More Button scrolling
   btnScrollTo.addEventListener('click', function (e) {
-    // const s1coords = section1.getBoundingClientRect();
-    // console.log(s1coords);
-    // console.log(e.target.getBoundingClientRect());
-    // console.log('Current scroll (X/Y)', window.scrollX, window.scrollY);
-    // console.log(
-    //   'height/width viewport',
-    //   document.documentElement.clientHeight,
-    //   document.documentElement.clientWidth
-    // );
     section1.scrollIntoView({ behavior: 'smooth' });
   });
 
-  ///////////////////////////////////////
+  /////////////////////////////////////////////////////
   // Page navigation
 
   // 1. Add event listener to common parent element
@@ -195,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  ///////////////////////////////////////
+  //////////////////////////////////////////////////
   // Tabbed component
 
   tabsContainer.addEventListener('click', function (e) {
@@ -217,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .classList.add('operations__content--active');
   });
 
-  ///////////////////////////////////////
+  ///////////////////////////////////////////////////
   // Menu fade animation
   const handleHover = function (e) {
     if (e.target.classList.contains('nav__link')) {
@@ -236,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
   nav.addEventListener('mouseover', handleHover.bind(0.5));
   nav.addEventListener('mouseout', handleHover.bind(1));
 
-  ///////////////////////////////////////
+  ////////////////////////////////////////////////////
   // Sticky navigation: Intersection Observer API
 
   const header = document.querySelector('.header');
@@ -258,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   headerObserver.observe(header);
 
-  ///////////////////////////////////////
+  //////////////////////////////////////////////////
   // Reveal sections
   const allSections = document.querySelectorAll('.section');
 
@@ -307,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   imgTargets.forEach(img => imgObserver.observe(img));
 
-  ///////////////////////////////////////
+  ///////////////////////////////////////////////////
   // Slider
   const slider = function () {
     const slides = document.querySelectorAll('.slide');
