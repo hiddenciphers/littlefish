@@ -101,7 +101,6 @@ p {
   color: #666;
 }
 
-/* This is BAD for accessibility! Don't do in the real world! */
 button:focus {
   outline: none;
 }
@@ -121,7 +120,7 @@ img {
   align-items: center;
   height: 9rem;
   width: 100%;
-  padding: 0 6rem;
+  padding: 6rem;
   z-index: 100;
 }
 
@@ -132,7 +131,7 @@ img {
 }
 
 .nav__logo {
-  height: 7rem;
+  height: 9rem;
   transition: all 0.3s;
 }
 
@@ -186,14 +185,12 @@ img {
 
 .header__title {
   flex: 1;
-
   max-width: 115rem;
   display: grid;
   grid-template-columns: 3fr 2fr;
   row-gap: 3rem;
   align-content: center;
   justify-content: center;
-
   align-items: start;
   justify-items: start;
 }
@@ -201,6 +198,10 @@ img {
 h1 {
   font-size: 5.5rem;
   line-height: 1.35;
+}
+
+.header-span {
+  margin-left: 8rem;
 }
 
 h4 {
@@ -212,7 +213,8 @@ h4 {
   width: 100%;
   grid-column: 2 / 3;
   grid-row: 1 / span 4;
-  transform: translateY(-6rem);
+  margin-top: -4rem;
+  transform: translateX(-6rem);
   border-radius: 20px 0;
 }
 
@@ -678,7 +680,6 @@ h4 {
 
 .modal.confirmation p {
   font-family: inherit;
-  
   font-size: 1.4rem;
 }
 
@@ -720,7 +721,7 @@ h4 {
 
 
 
-@media (min-width: 91.875rem) {
+/* @media (min-width: 91.875rem) {
   body {
     font-size: 1.8rem;
   }
@@ -735,7 +736,7 @@ h4 {
   }
 
   .header__img {
-    width: 120%;
+    width: 160%;
     margin-left: 5rem;
   }
 
@@ -746,7 +747,7 @@ h4 {
   .features__feature {
     font-size: 2rem;
   }
-}
+} */
 
 
 @media only screen and (min-width: 48rem) and (max-width: 64rem) and (orientation: portrait) {
@@ -756,6 +757,7 @@ h4 {
 
   .nav {
     padding: 1rem;
+    margin-top: 0;
   }
 
   .nav__logo {
@@ -770,7 +772,7 @@ h4 {
     position: absolute;
     top: 10%;
     right: 0;
-    background-color: rgba(255, 255, 255, 0.555);
+    background-color: white;
     width: 100%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     padding: 2.5rem;
@@ -800,7 +802,10 @@ h4 {
   }
 
   .header__img {
-    width: 100%;
+    width: 135%;
+    /* transform: translateY(-5rem); */
+    transform: translateX(-13rem);
+    margin-top: -16.5rem;
   }
 
   .left__img {
@@ -834,12 +839,15 @@ h4 {
   .header__title > h1 {
     font-size: 3rem;
     width: 150%;
-    margin-top: -10rem;
+    margin-top: -15rem;
+  }
+
+  .header-span {
+    margin-left: 4rem;
   }
 
   .header__img {
-    margin-top: 15%;
-    margin-left: -6rem;
+    margin-top: -4rem;
     width: 130%;
   }
 
@@ -861,7 +869,7 @@ h4 {
     position: absolute;
     top: 13%;
     right: 0;
-    background-color: rgba(255, 255, 255, 0.555);
+    background-color: white;
     width: 100%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     padding: 2.5rem;
