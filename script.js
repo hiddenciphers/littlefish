@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Open the correct modal based on button text
     if (targetText === 'Contact Us' || targetText === 'Contact' || targetText === 'Enquire Now' || targetText === 'Franchise') {
-      window.location.href = './form/contact.html';
+      window.location.href = './backend/contact.html';
     } else if (targetText === 'Locations') {
       locationsModal.classList.remove('hidden');
       locationsModal.removeAttribute('inert');
