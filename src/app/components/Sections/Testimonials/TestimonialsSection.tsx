@@ -88,7 +88,7 @@ export default function TestimonialsSection() {
           </motion.div>
         </AnimatePresence>
         {/* Navigation & Indicators Row */}
-        <div className="w-full flex justify-center items-center gap-13 md:gap-72">
+        <div className="w-full flex justify-evenly md:justify-between items-center">
           {/* Prev Button */}
           <motion.button
             onClick={prev}
