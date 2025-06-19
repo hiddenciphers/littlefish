@@ -42,7 +42,7 @@ export default function TestimonialsSection() {
       aria-labelledby="testimonials-heading"
     >
       <div
-        className="relative w-full max-w-3xl bg-white/5 dark:bg-dark-card-background p-10 rounded-xl shadow-lg text-center overflow-hidden h-135 md:h-[320px]"
+        className="relative w-full max-w-3xl bg-white/5 dark:bg-dark-card-background p-10 rounded-xl shadow-lg text-center overflow-hidden h-132 md:h-[337px]"
         role="region"
         aria-roledescription="carousel"
         aria-label="Testimonials carousel"
@@ -50,29 +50,6 @@ export default function TestimonialsSection() {
         <h2 id="testimonials-heading" className="sr-only">
           Testimonials
         </h2>
-
-        {/* Navigation Buttons */}
-        <motion.button
-          onClick={prev}
-          whileTap={{ scale: 0.9 }}
-          className="absolute left-4 -bottom-2 -translate-y-1/2 z-10 cursor-pointer"
-          aria-label="Previous testimonial"
-        >
-          <span className="p-3 rounded-full text-white block transition-all duration-300 bg-og-blue hover:bg-og-blue-hover">
-            <ChevronLeft size={24} />
-          </span>
-        </motion.button>
-
-        <motion.button
-          onClick={next}
-          whileTap={{ scale: 0.9 }}
-          className="absolute right-4 -bottom-2 -translate-y-1/2 z-10 cursor-pointer"
-          aria-label="Next testimonial"
-        >
-          <span className="p-3 rounded-full text-white block transition-all duration-300 bg-og-blue hover:bg-og-blue-hover">
-            <ChevronRight size={24} />
-          </span>
-        </motion.button>
 
         {/* Testimonial Content */}
         <AnimatePresence mode="wait">
@@ -85,7 +62,7 @@ export default function TestimonialsSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col items-center gap-4"
+            className="flex h-102 md:h-57 flex-col items-center gap-4 mb-4 md:mb-0"
           >
             {/* Heading with Decorative Quote */}
             <div className="flex flex-col md:flex-row items-center justify-center gap-2 text-light-text-primary dark:text-dark-text-primary font-poppins font-bold text-xl md:text-2xl">
@@ -110,28 +87,54 @@ export default function TestimonialsSection() {
             </div>
           </motion.div>
         </AnimatePresence>
+        {/* Navigation & Indicators Row */}
+        <div className="w-full flex justify-center items-center gap-13 md:gap-72">
+          {/* Prev Button */}
+          <motion.button
+            onClick={prev}
+            whileTap={{ scale: 0.9 }}
+            className="cursor-pointer"
+            aria-label="Previous testimonial"
+          >
+            <span className="p-3 rounded-full text-white block transition-all duration-300 bg-og-blue hover:bg-og-blue-hover">
+              <ChevronLeft size={24} />
+            </span>
+          </motion.button>
 
-        {/* Indicator Dots */}
-        <div className="flex gap-2 justify-center mt-6 absolute left-29 bottom-9 md:bottom-5 md:left-90">
-          {testimonials.map((_, i) => {
-            const dotColors = ["bg-og-red", "bg-og-yellow", "bg-og-green"];
-            const isActive = index === i;
-            const activeColor = dotColors[i];
+          {/* Dots */}
+          <div className="flex gap-2 items-center">
+            {testimonials.map((_, i) => {
+              const dotColors = ["bg-og-red", "bg-og-yellow", "bg-og-green"];
+              const isActive = index === i;
+              const activeColor = dotColors[i];
 
-            return (
-              <button
-                key={i}
-                onClick={() => setIndex(i)}
-                aria-label={`Go to testimonial ${i + 1}`}
-                aria-current={isActive ? "true" : undefined}
-                className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 cursor-pointer ${
-                  isActive
-                    ? `${activeColor} scale-110`
-                    : `${activeColor} opacity-50 hover:opacity-80`
-                }`}
-              />
-            );
-          })}
+              return (
+                <button
+                  key={i}
+                  onClick={() => setIndex(i)}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 cursor-pointer ${
+                    isActive
+                      ? `${activeColor} scale-110`
+                      : `${activeColor} opacity-50 hover:opacity-80`
+                  }`}
+                />
+              );
+            })}
+          </div>
+
+          {/* Next Button */}
+          <motion.button
+            onClick={next}
+            whileTap={{ scale: 0.9 }}
+            className="cursor-pointer"
+            aria-label="Next testimonial"
+          >
+            <span className="p-3 rounded-full text-white block transition-all duration-300 bg-og-blue hover:bg-og-blue-hover">
+              <ChevronRight size={24} />
+            </span>
+          </motion.button>
         </div>
       </div>
     </section>

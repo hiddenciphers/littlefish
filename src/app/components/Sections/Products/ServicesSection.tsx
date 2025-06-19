@@ -41,7 +41,7 @@ export default function ServicesSection() {
     >
       {/* Mobile: Icon Buttons */}
       <div
-        className="flex justify-center gap-6 pb-6 md:hidden"
+        className="flex justify-center gap-6 pb-6"
         role="tablist"
         aria-label="Service options"
         id="services-tabs"
@@ -73,7 +73,7 @@ export default function ServicesSection() {
       </div>
 
       {/* Desktop: Full Buttons */}
-      <div
+      {/* <div
         className="hidden md:flex justify-center gap-36"
         role="tablist"
         aria-label="Service tabs"
@@ -101,7 +101,7 @@ export default function ServicesSection() {
             </button>
           );
         })}
-      </div>
+      </div> */}
 
       {/* Content Card */}
       <div className="relative bg-white/5 dark:bg-dark-card-background p-10 rounded-xl shadow-lg max-w-3xl w-full text-center md:h-fit h-110 overflow-hidden">
