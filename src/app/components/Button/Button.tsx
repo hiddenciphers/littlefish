@@ -20,7 +20,7 @@ const Button = ({
 
   const colorMap = {
     blue: "bg-og-blue-dark text-white",
-    green: "bg-og-green tex-gray-900",
+    green: "bg-og-green text-gray-900",
   };
 
   return (
