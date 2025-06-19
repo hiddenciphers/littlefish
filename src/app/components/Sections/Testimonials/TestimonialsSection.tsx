@@ -42,7 +42,7 @@ export default function TestimonialsSection() {
       aria-labelledby="testimonials-heading"
     >
       <div
-        className="relative w-full max-w-3xl bg-white/5 dark:bg-dark-card-background p-10 rounded-xl shadow-lg text-center overflow-hidden h-132 md:h-[337px]"
+        className="relative w-full max-w-3xl bg-white/5 dark:bg-dark-card-background px-10 pt-10 pb-5 rounded-xl shadow-lg text-center overflow-hidden h-132 md:h-fit"
         role="region"
         aria-roledescription="carousel"
         aria-label="Testimonials carousel"
@@ -62,7 +62,7 @@ export default function TestimonialsSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.5 }}
-            className="flex h-102 md:h-57 flex-col items-center gap-4 mb-4 md:mb-0"
+            className="flex h-102 md:h-fit flex-col items-center gap-4 mb-4 md:mb-0"
           >
             {/* Heading with Decorative Quote */}
             <div className="flex flex-col md:flex-row items-center justify-center gap-2 text-light-text-primary dark:text-dark-text-primary font-poppins font-bold text-xl md:text-2xl">
