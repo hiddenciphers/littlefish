@@ -78,7 +78,13 @@ const NavMenu = ({
         ))}
 
         <li role="none" className="w-full px-2 flex justify-center">
-          <Button onClick={() => handleNavClick("Contact")}>Contact</Button>
+          <Button
+            role="menuitem"
+            aria-label="Contact section"
+            onClick={() => handleNavClick("Contact")}
+          >
+            Contact
+          </Button>
         </li>
       </ul>
     </motion.nav>

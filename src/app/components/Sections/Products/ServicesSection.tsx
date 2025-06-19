@@ -61,6 +61,7 @@ export default function ServicesSection() {
               role="tab"
               aria-selected={selected === i}
               aria-controls={`service-panel-${i}`}
+              aria-label={`View service: ${service.title}`}
               id={`service-tab-${i}`}
               className={`p-3 rounded-full transition-all duration-300 cursor-pointer ${
                 i === selected ? "scale-80 shadow-lg" : "opacity-70"
@@ -71,37 +72,6 @@ export default function ServicesSection() {
           );
         })}
       </div>
-
-      {/* Desktop: Full Buttons */}
-      {/* <div
-        className="hidden md:flex justify-center gap-36"
-        role="tablist"
-        aria-label="Service tabs"
-      >
-        {services.map((service, i) => {
-          const colorMap = {
-            green: "bg-og-green hover:bg-og-green-hover text-white",
-            blue: "bg-og-blue hover:bg-og-blue-hover text-white",
-            red: "bg-og-red hover:bg-og-red-hover text-white",
-          };
-
-          return (
-            <button
-              key={service.title}
-              onClick={() => setSelected(i)}
-              role="tab"
-              aria-selected={selected === i}
-              aria-controls={`service-panel-${i}`}
-              id={`service-tab-${i}`}
-              className={`px-5 py-3 rounded-full font-semibold font-poppins transition-all duration-300 cursor-pointer ${
-                colorMap[service.color as keyof typeof colorMap]
-              } ${i === selected ? "-translate-y-1 shadow-md" : ""}`}
-            >
-              {service.title}
-            </button>
-          );
-        })}
-      </div> */}
 
       {/* Content Card */}
       <div className="relative bg-white/5 dark:bg-dark-card-background p-10 rounded-xl shadow-lg max-w-3xl w-full text-center md:h-fit h-110 overflow-hidden">
