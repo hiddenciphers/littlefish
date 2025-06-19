@@ -16,11 +16,11 @@ const Button = ({
   ...props
 }: ButtonProps) => {
   const base =
-    "h-fit w-full p-3 md:px-8 text-dark-text-primary rounded-lg cursor-pointer font-semibold transition-colors duration-300";
+    "h-fit w-full p-3 md:px-8 rounded-lg cursor-pointer font-semibold transition-colors duration-300";
 
   const colorMap = {
-    blue: "bg-og-blue",
-    green: "bg-og-green",
+    blue: "bg-og-blue text-dark-text-primary",
+    green: "bg-og-green text-white",
   };
 
   return (

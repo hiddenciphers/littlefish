@@ -118,6 +118,8 @@ export default function RootLayout({
                 telephone: "0401-721-723",
                 address: {
                   "@type": "PostalAddress",
+                  streetAddress: "Level 1, 507 Peel Street",
+                  postalCode: "2340",
                   addressLocality: "Tamworth",
                   addressRegion: "NSW",
                   addressCountry: "AU",
@@ -135,6 +137,8 @@ export default function RootLayout({
                 telephone: "0401-721-723",
                 address: {
                   "@type": "PostalAddress",
+                  streetAddress: "123 Example Street",
+                  postalCode: "2464",
                   addressLocality: "Yamba",
                   addressRegion: "NSW",
                   addressCountry: "AU",

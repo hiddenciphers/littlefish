@@ -48,6 +48,7 @@ export default function AboutSection() {
             role="tab"
             aria-selected={selected === i}
             aria-controls={`about-panel-${i}`}
+            aria-label={item.heading}
             className={`p-3 rounded-full transition-all duration-300 cursor-pointer ${
               i === selected ? "scale-80 shadow-lg" : "opacity-70"
             } text-white`}
