@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🐟 LittleFish Accounting | Franchise Landing Site
 
-## Getting Started
+Welcome to the official source code for **LittleFish Accounting's franchise opportunity landing page** — a fast, accessible, SEO-optimized, and mobile-first React/Next.js web app built with Tailwind CSS and Framer Motion.
 
-First, run the development server:
+---
+
+## 🔍 Overview
+
+LittleFish Accounting is expanding its national franchise network and empowering small business accountants to succeed with brand strength and full support.
+
+This responsive landing page was built to convert potential franchisees and clients by combining animation, performance, accessibility, and clear calls to action.
+
+---
+
+## 🚀 Features
+
+- ✅ **WCAG-compliant accessibility**
+- ⚡ **Framer Motion animations** across all components
+- 🎯 **Search Engine Optimization (SEO)**
+  - OpenGraph & Twitter meta tags
+  - JSON-LD structured data for FAQ and LocalBusiness
+  - Canonical links and Apple/Android icons
+- 📱 **Fully responsive** mobile-first layout
+- 🧠 **Zustand global state** for overlay/modal control
+- 📨 **Contact modal form** with Formspree integration
+- 📍 Local business locations: Tamworth and Yamba, Australia
+- 🌐 Deployed on [Vercel](https://vercel.com/)
+
+---
+
+## 🛠️ Built With
+
+- [Next.js 14+](https://nextjs.org/)
+- [React 18](https://reactjs.org/)
+- [Tailwind CSS 3](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Lucide React](https://lucide.dev/)
+- [Formspree](https://formspree.io/)
+- [Zustand](https://github.com/pmndrs/zustand)
+
+---
+
+## 📁 Folder Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+src/
+│
+├── app/
+│   ├── components/          # All UI components
+│   ├── Modals/              # Contact & Location modals
+│   ├── sections/            # Hero, About, Services, CTA, Footer
+│   ├── utils/               # Utility functions (e.g., scrollToSection)
+│   ├── store/               # Zustand global store (overlay control)
+│   ├── layout.tsx          # Metadata, SEO tags, wrapper
+│   └── page.tsx            # App entry
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📸 Open Graph Image
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Ensure /public/og-image.jpg is:**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 1200×630 pixels
 
-## Learn More
+- Optimised and compressed
 
-To learn more about Next.js, take a look at the following resources:
+- Branded for LittleFish with franchise messaging
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📦 Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Clone repo
 
-## Deploy on Vercel
+```
+git clone https://github.com/hiddenciphers/littlefish.git
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+cd littlefish
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Install dependencies
+
+```
+npm install
+```
+
+### Run dev server
+
+```
+npm run dev
+```
+
+## 🔐 Environment Setup
+
+This project uses Formspree for contact form handling. No .env needed unless extending functionality.
+
+## ✅ Deployment
+
+1. This project is deployed using Vercel. If the domain is managed via Cloudflare:
+
+2. Deploy under a Vercel alias or temporary subdomain.
+
+3. Fine-tune.
+
+4. Once approved, point Cloudflare DNS to Vercel’s edge network.
+
+5. Set the production domain in your Vercel settings.
+
+## 🧠 Accessibility & SEO Strategy
+
+- All interactive elements are keyboard and screen-reader accessible.
+
+- Semantic HTML and ARIA roles ensure WCAG 2.1 AA compliance.
+
+- SEO-optimized meta config in layout.tsx:
+
+  - Metadata API
+
+  - Open Graph + Twitter meta
+
+  - JSON-LD for LocalBusiness + FAQs
+
+- Custom 404 page
+
+- Favicon and Apple touch icon configured
+
+## 👨‍💻 Author
+
+World Class Web Solutions
+
+Built by [@hiddenciphers](https://www.github.com/hiddenciphers)
+
+## 📝 License
+
+This project is private and owned by LittleFish Accounting.
+
+For licensing inquiries,
+please contact: info@littlefishaccounting.com.au
