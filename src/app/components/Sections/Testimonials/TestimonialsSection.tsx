@@ -42,7 +42,7 @@ export default function TestimonialsSection() {
       aria-labelledby="testimonials-heading"
     >
       <div
-        className="relative w-full max-w-3xl bg-white/5 dark:bg-dark-card-background px-10 py-10 rounded-xl shadow-lg text-center overflow-hidden h-fit md:h-fit"
+        className="relative w-full max-w-3xl bg-white/5 dark:bg-dark-card-background p-10 rounded-xl shadow-lg text-center overflow-hidden h-fit"
         role="region"
         aria-roledescription="carousel"
         aria-label="Testimonials carousel"
