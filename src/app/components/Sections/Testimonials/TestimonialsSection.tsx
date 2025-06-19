@@ -42,7 +42,7 @@ export default function TestimonialsSection() {
       aria-labelledby="testimonials-heading"
     >
       <div
-        className="relative w-full max-w-3xl bg-white/5 dark:bg-dark-card-background px-10 pt-10 pb-5 rounded-xl shadow-lg text-center overflow-hidden h-132 md:h-fit"
+        className="relative w-full max-w-3xl bg-white/5 dark:bg-dark-card-background px-10 py-10 rounded-xl shadow-lg text-center overflow-hidden h-fit md:h-fit"
         role="region"
         aria-roledescription="carousel"
         aria-label="Testimonials carousel"
@@ -88,7 +88,7 @@ export default function TestimonialsSection() {
           </motion.div>
         </AnimatePresence>
         {/* Navigation & Indicators Row */}
-        <div className="w-full flex justify-evenly md:justify-between items-center">
+        <div className="w-full flex justify-between items-center">
           {/* Prev Button */}
           <motion.button
             onClick={prev}
