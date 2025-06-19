@@ -13,8 +13,8 @@ export default function NotFound() {
         404 - Page Not Found
       </h1>
       <p className="mt-4 text-dark-card-background dark:text-light-text-secondary text-lg">
-        The page you're looking for doesn’t exist. It might have been moved or
-        deleted.
+        The page you&apos;re looking for doesn&apos;t exist. It might have been
+        moved or deleted.
       </p>
       <div className="mt-8 w-full max-w-sm">
         <Link href="/">

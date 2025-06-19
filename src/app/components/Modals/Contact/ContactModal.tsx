@@ -113,7 +113,7 @@ export default function ContactFormModal({
                 >
                   <LittleFishLogo height={110} loop />
                   <p className="text-xl font-inter font-semibold text-dark-text-primary">
-                    We'll be in contact shortly.
+                    We&apos;ll be in contact shortly.
                   </p>
                 </motion.div>
               ) : (
