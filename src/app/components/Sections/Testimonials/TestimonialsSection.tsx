@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -8,7 +8,7 @@ const testimonials = [
   {
     heading: "Stress-Free Accounting Made Possible!",
     content:
-      "Little Fish Accounting transformed the way I manage my business finances. Their Xero training was straightforward, and the ongoing support has been a lifesaver. Now I can focus on growing my business while they handle the numbers!",
+      "Little Fish transformed the way I manage my business finances. Their Xero training was straightforward, and the ongoing support has been a lifesaver. Now I can focus on growing my business while they handle the numbers!",
     name: "Steve N",
     role: "Small Business Owner",
   },
@@ -30,6 +30,14 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   const [index, setIndex] = useState(0);
+  const [maxHeight, setMaxHeight] = useState(0);
+  const refs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const heights = refs.current.map((el) => el?.offsetHeight || 0);
+    const tallest = Math.max(...heights);
+    setMaxHeight(tallest);
+  }, [index]);
 
   const prev = () =>
     setIndex((i) => (i === 0 ? testimonials.length - 1 : i - 1));
@@ -51,45 +59,51 @@ export default function TestimonialsSection() {
           Testimonials
         </h2>
 
-        {/* Testimonial Content */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={index}
-            role="group"
-            aria-roledescription="slide"
-            aria-label={`Testimonial ${index + 1} of ${testimonials.length}`}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.5 }}
-            className="flex h-102 md:h-fit flex-col items-center gap-4 mb-4 md:mb-0"
-          >
-            {/* Heading with Decorative Quote */}
-            <div className="flex flex-col md:flex-row items-center justify-center gap-2 text-light-text-primary dark:text-dark-text-primary font-poppins font-bold text-xl md:text-2xl">
-              <span
-                className="text-og-blue text-5xl leading-none md:mr-2 -mb-2 md:mb-0 hidden md:block"
-                aria-hidden="true"
-              >
-                “
-              </span>
-              <h3 className="text-center">{testimonials[index].heading}</h3>
-            </div>
+        {/* 🔹 Animated Content Container */}
+        <div
+          className="relative w-full transition-all duration-300"
+          style={{ minHeight: maxHeight }}
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              ref={(el) => void (refs.current[index] = el)}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`Testimonial ${index + 1} of ${testimonials.length}`}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.5 }}
+              className="absolute top-0 left-0 w-full flex flex-col items-center gap-4"
+            >
+              {/* Heading with Decorative Quote */}
+              <div className="flex flex-col md:flex-row items-center justify-center gap-2 text-light-text-primary dark:text-dark-text-primary font-poppins font-bold text-xl md:text-2xl">
+                <span
+                  className="text-og-blue text-5xl leading-none md:mr-2 -mb-2 md:mb-0 hidden md:block"
+                  aria-hidden="true"
+                >
+                  “
+                </span>
+                <h3 className="text-center">{testimonials[index].heading}</h3>
+              </div>
 
-            <p className="text-light-text-secondary dark:text-dark-text-secondary font-inter text-sm md:text-base leading-relaxed">
-              {testimonials[index].content}
-            </p>
+              <p className="text-light-text-secondary dark:text-dark-text-secondary font-inter text-sm md:text-base leading-relaxed">
+                {testimonials[index].content}
+              </p>
 
-            <div className="pt-4 text-light-text-primary dark:text-dark-text-primary font-semibold">
-              {testimonials[index].name}
-            </div>
-            <div className="text-xs text-light-text-secondary dark:text-dark-text-secondary">
-              {testimonials[index].role}
-            </div>
-          </motion.div>
-        </AnimatePresence>
-        {/* Navigation & Indicators Row */}
-        <div className="w-full flex justify-between items-center">
-          {/* Prev Button */}
+              <div className="pt-4 text-light-text-primary dark:text-dark-text-primary font-semibold">
+                {testimonials[index].name}
+              </div>
+              <div className="text-xs text-light-text-secondary dark:text-dark-text-secondary">
+                {testimonials[index].role}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* 🔹 Navigation + Dots */}
+        <div className="w-full flex justify-center gap-6 items-center mt-4">
           <motion.button
             onClick={prev}
             whileTap={{ scale: 0.9 }}
@@ -101,13 +115,11 @@ export default function TestimonialsSection() {
             </span>
           </motion.button>
 
-          {/* Dots */}
           <div className="flex gap-2 items-center">
             {testimonials.map((_, i) => {
               const dotColors = ["bg-og-red", "bg-og-yellow", "bg-og-green"];
               const isActive = index === i;
               const activeColor = dotColors[i];
-
               return (
                 <button
                   key={i}
@@ -124,7 +136,6 @@ export default function TestimonialsSection() {
             })}
           </div>
 
-          {/* Next Button */}
           <motion.button
             onClick={next}
             whileTap={{ scale: 0.9 }}
