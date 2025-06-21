@@ -8,21 +8,21 @@ const testimonials = [
   {
     heading: "Stress-Free Accounting Made Possible!",
     content:
-      "Little Fish transformed the way I manage my business finances. Their Xero training was straightforward, and the ongoing support has been a lifesaver. Now I can focus on growing my business while they handle the numbers!",
+      "Little Fish made managing my business finances simple. Their Xero training was clear, and the ongoing support has been a game-changer. I now spend less time worrying about numbers and more time growing my business with confidence and peace of mind.",
     name: "Steve N",
     role: "Small Business Owner",
   },
   {
     heading: "Expert Guidance Every Step of the Way",
     content:
-      "As an independent accountant, joining the Little Fish franchise was the best decision I’ve made. The resources and mentorship have helped me scale my practice, while still delivering top-notch service to my clients.",
+      "Joining the Little Fish franchise changed my career. I received personalised support, marketing tools, and expert mentoring that helped me scale fast. I can now deliver better service to my clients while running a thriving, independent practice with full support behind me.",
     name: "Sarah L",
     role: "Franchise Partner",
   },
   {
     heading: "Tailored Solutions That Deliver Results",
     content:
-      "The team at Little Fish Accounting doesn’t just crunch numbers – they provide valuable insights that have helped my business thrive. Their financial reporting and tax strategies have saved me time and money year after year.",
+      "The Little Fish team does more than just accounting. Their tailored tax strategies and in-depth financial reports have helped me save money and make smarter business decisions. They’ve become an essential part of how I grow and sustain my company each year.",
     name: "Max P",
     role: "Entrepreneur",
   },
