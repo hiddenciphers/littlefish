@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 interface MenuIconProps {
   onClick?: () => void;
@@ -8,12 +9,24 @@ interface MenuIconProps {
 }
 
 export default function MenuIcon({ onClick, isOpen }: MenuIconProps) {
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHasAnimated(true);
+    }, 2300);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <button
       type="button"
       onClick={(e) => {
         e.stopPropagation();
-        onClick?.();
+        if (hasAnimated) {
+          onClick?.();
+        }
       }}
       aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
       aria-expanded={isOpen}
@@ -23,33 +36,61 @@ export default function MenuIcon({ onClick, isOpen }: MenuIconProps) {
     >
       {/* Top Line */}
       <motion.span
-        initial={false}
+        initial={{ opacity: 0, scaleX: 0 }}
         animate={{
+          opacity: hasAnimated ? 1 : 0,
+          scaleX: hasAnimated ? 1 : 0,
           rotate: isOpen ? 45 : 0,
           y: isOpen ? 0 : -8,
         }}
-        transition={{ duration: 0.3 }}
+        transition={{
+          opacity: { delay: hasAnimated ? 0.3 : 0, duration: 0.1 },
+          scaleX: {
+            delay: hasAnimated ? 0.3 : 0,
+            duration: 0.8,
+            type: "spring",
+            stiffness: 180,
+            damping: 10,
+          },
+          rotate: { duration: 0.3 },
+          y: { duration: 0.3 },
+        }}
         className="absolute w-full h-0.5 bg-current origin-center"
       />
 
       {/* Middle Line */}
       <motion.span
-        initial={false}
+        initial={{ opacity: 0 }}
         animate={{
-          opacity: isOpen ? 0 : 1,
+          opacity: hasAnimated ? (isOpen ? 0 : 1) : hasAnimated ? 1 : 0,
         }}
-        transition={{ duration: 0.2 }}
+        transition={{
+          opacity: hasAnimated ? { duration: 0.2 } : { duration: 0.3 },
+        }}
         className="absolute w-full h-0.5 bg-current"
       />
 
       {/* Bottom Line */}
       <motion.span
-        initial={false}
+        initial={{ opacity: 0, scaleX: 0 }}
         animate={{
+          opacity: hasAnimated ? 1 : 0,
+          scaleX: hasAnimated ? 1 : 0,
           rotate: isOpen ? -45 : 0,
           y: isOpen ? 0 : 8,
         }}
-        transition={{ duration: 0.3 }}
+        transition={{
+          opacity: { delay: hasAnimated ? 0.3 : 0, duration: 0.1 },
+          scaleX: {
+            delay: hasAnimated ? 0.3 : 0,
+            duration: 0.8,
+            type: "spring",
+            stiffness: 180,
+            damping: 10,
+          },
+          rotate: { duration: 0.3 },
+          y: { duration: 0.3 },
+        }}
         className="absolute w-full h-0.5 bg-current origin-center"
       />
     </button>
