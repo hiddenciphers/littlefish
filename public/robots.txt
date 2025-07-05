@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://www.littlefishaccounting.com.au/sitemap.xml
